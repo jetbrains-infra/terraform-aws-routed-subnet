@@ -1,7 +1,9 @@
 variable "vpc_id" {
   description = "ID of your VPC."
 }
-variable "project" {}
+variable "project" {
+  description = "Project tag"
+}
 variable "name" {
   description = "Prefix of your network name, 'RDS' or 'App' e.g."
 }

@@ -11,6 +11,7 @@ Private subnet:
 ```
 module "subnet" {
   source  = "github.com/jetbrains-infra/terraform-aws-subnet"
+  project = "FooBar" // required
   vpc_id  = "${local.vpc_id}" // required
   name    = "DB" // required
 }
@@ -20,6 +21,7 @@ All options with default values:
 ```
 module "subnet" {
   source       = "github.com/jetbrains-infra/terraform-aws-subnet"
+  project = "FooBar" // required
   vpc_id       = "${local.vpc_id}" // required
   name         = "DB" // required
   zone         = "eu-west-1a"
