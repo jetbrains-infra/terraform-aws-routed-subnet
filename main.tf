@@ -8,6 +8,7 @@ resource "aws_subnet" "default" {
     Name    = "${local.name}"
     Project = "${local.project}"
     Type    = "${local.type}"
+    Group   = "${local.group}"
   }
 }
 

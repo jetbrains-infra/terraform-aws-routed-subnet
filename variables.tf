@@ -14,6 +14,10 @@ variable "type" {
   description = "Network type: 'private' or 'public'"
   default     = "private"
 }
+variable "group" {
+  description = "Group tag. You may specify it to define varous scopes for subnets of one type."
+  default     = "common"
+}
 variable "shift" {
   description = "How many subnets were already taken from VPC cidr block."
   default     = 0
@@ -40,5 +44,6 @@ locals {
   purpose     = "${title(var.name)}"
   name        = "${local.purpose} ${var.type}"
   type        = "${lower(var.type)}"
+  group       = "${var.group}"
   az          = "${var.zone}"
 }
