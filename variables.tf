@@ -27,8 +27,7 @@ variable "network_mask" {
   default     = 2
 }
 variable "route_table" {
-  description = "Route table id for public networks."
-  default     = ""
+  description = "Route table id."
 }
 data "aws_vpc" "default" {
   id = "${local.vpc_id}"

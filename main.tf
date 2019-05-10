@@ -13,7 +13,6 @@ resource "aws_subnet" "default" {
 }
 
 resource "aws_route_table_association" "internet_access" {
-  count          = "${local.route_table == "" ? 0 : 1}"
   route_table_id = "${local.route_table}"
   subnet_id      = "${aws_subnet.default.id}"
 }
