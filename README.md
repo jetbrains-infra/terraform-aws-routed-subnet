@@ -10,11 +10,11 @@ Features:
 Private subnet:
 ```
 module "subnet" {
-  source  = "github.com/jetbrains-infra/terraform-aws-subnet"
-  project = "FooBar" 
-  vpc_id  = "${local.vpc_id}" 
-  name    = "DB" 
-  route_table  = "${aws_route_table.intenert_access.id}"
+  source      = "github.com/jetbrains-infra/terraform-aws-subnet"
+  project     = "FooBar" 
+  vpc_id      = "${local.vpc_id}" 
+  name        = "DB" 
+  route_table = "${aws_route_table.intenert_access.id}"
 }
 ```
 
@@ -22,7 +22,7 @@ All options with default values:
 ```
 module "subnet" {
   source       = "github.com/jetbrains-infra/terraform-aws-subnet"
-  project = "FooBar" // required
+  project      = "FooBar" // required
   vpc_id       = "${local.vpc_id}" // required
   name         = "DB" // required
   zone         = "eu-west-1a"
@@ -36,3 +36,4 @@ module "subnet" {
 ## Outputs
 
 * `id` - subnet id 
+* `cidr` - CIDR
