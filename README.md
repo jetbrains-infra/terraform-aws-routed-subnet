@@ -37,3 +37,4 @@ module "subnet" {
 
 * `id` - subnet id 
 * `cidr` - CIDR
+* `arn` - subnet ARN
