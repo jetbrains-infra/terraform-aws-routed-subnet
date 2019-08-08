@@ -38,8 +38,8 @@ locals {
   route_table = "${var.route_table}"
   vpc_id      = "${var.vpc_id}"
   vpc_cidr    = "${data.aws_vpc.default.cidr_block}"
-  newbites    = "${var.network_mask}"
-  subnet_cidr = "${cidrsubnet(local.vpc_cidr, local.newbites, var.shift)}" // var.shift because local.shift will not work
+  newbits     = "${var.network_mask}"
+  subnet_cidr = "${cidrsubnet(local.vpc_cidr, local.newbits, var.shift)}" // var.shift because local.shift will not work
   purpose     = "${title(var.name)}"
   name        = "${local.purpose} ${var.type}"
   type        = "${lower(var.type)}"
