@@ -1,11 +1,11 @@
 output "id" {
-  value = "${aws_subnet.default.id}"
+  value = aws_subnet.default.id
 }
 
 output "cidr" {
-  value = "${aws_subnet.default.cidr_block}"
+  value = aws_subnet.default.cidr_block
 }
 
 output "arn" {
-  value = "${aws_subnet.default.arn}"
+  value = aws_subnet.default.arn
 }
