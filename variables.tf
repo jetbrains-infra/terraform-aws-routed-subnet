@@ -18,13 +18,8 @@ variable "group" {
   description = "Group tag. You may specify it to define varous scopes for subnets of one type."
   default     = "common"
 }
-variable "shift" {
-  description = "How many subnets were already taken from VPC cidr block."
-  default     = 0
-}
-variable "network_mask" {
-  description = "Network mask in bites. 2 for /24 e.g. Default is 2 (256 IPs for subnet in VPC with /22 CIDR)."
-  default     = 2
+variable "subnet_cidr" {
+  description = "Subnet CIDR."
 }
 variable "route_table" {
   description = "Route table id."
@@ -38,8 +33,7 @@ locals {
   route_table = var.route_table
   vpc_id      = var.vpc_id
   vpc_cidr    = data.aws_vpc.default.cidr_block
-  newbites    = var.network_mask
-  subnet_cidr = cidrsubnet(local.vpc_cidr, local.newbites, var.shift) // var.shift because local.shift will not work
+  subnet_cidr = var.subnet_cidr
   purpose     = title(var.name)
   name        = "${local.purpose} ${var.type}"
   type        = lower(var.type)
