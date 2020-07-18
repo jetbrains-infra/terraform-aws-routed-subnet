@@ -1,7 +1,6 @@
 variable "tags" {
   description = "Tags."
   type        = map(string)
-  default     = {}
 }
 variable "name" {
   description = "Prefix of your network name, 'RDS' or 'App' e.g."
@@ -27,8 +26,7 @@ locals {
   route_table = var.route_table
   vpc_id      = data.aws_route_table.current.vpc_id
   subnet_cidr = var.subnet_cidr
-  purpose     = title(var.name)
-  name        = "${local.purpose} ${var.type}"
+  name        = var.name
   type        = lower(var.type)
   az          = var.zone
   tags = merge({
